@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hey</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="container">
+        <h1>:)</h1>
+        <ul>
+          <% for(var i = 0; i < data.length; i++) { %>
+          <li><%= data[i] %></li>
+          <% } %>
+        </ul>
+        <div class="form">
+          <input id="text" type="text" placeholder="Enter some text here">
+          <input id="submit" type="button" onclick="jQuery.submit()" value="Submit">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
+
+* {
+    padding: 0;
+    margin: 0;
+    /*border: 1px solid rgba(0, 0, 0, 0.3);*/
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    background-color: #31490b;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    margin: 20px 0;
+    font-size: 32pt;
+}
+
+.main {
+    width: 700px;
+    min-height: 100%;
+    background-color: #72a821;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container {
+    margin-top: 100px;
+    width: 400px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    line-height: 1.5;
+    color: #31490b;
+}
+
+.form {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#text, #submit {
+    width: 50%;
+    color: #72a821;
+    background-color: #31490b;
+    border: none;
+    font-family: inherit;
+    height: 60px;
+}
+
+ul {
+    width: 100%;
+    word-wrap: break-word;
+}
+
+#text {
+    text-align: center;
+    font-size: inherit;
+}
+
+::-webkit-input-placeholder {
+    color: #72a821;
+}
+
+#submit {
+    margin-top: 10px;
+    font-size: 2em;
+}
+
+#submit:hover {
+    background-color: #507a0d;
+}
