@@ -13,7 +13,8 @@ $(() =>
             data: { text: value },
             success: (data) =>
             {
-                $('.genUrl').text(location.hostname + '/' + data).show()
+                var link = `http://${location.hostname}/${data}`
+                $('.genUrl').text(link).attr('href', link).show()
             }
         })
     }

@@ -5,20 +5,15 @@ const bodyParser = require('body-parser');
 const app = express()
 
 const dataFile = 'database/data.txt'
+const genLength = 5
 const port = 80
 
-//app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'))
 
 function getIP(req)
 {
     return req.ip.split(':').pop()
-}
-
-function parseData(data)
-{
-    return data.toString().split('\n').filter(a => a.length > 0)
 }
 
 function randomString(length)
@@ -30,31 +25,33 @@ function randomString(length)
     return result
 }
 
-/*app.get('/', (req, res) =>
+app.get(new RegExp(`\\w{${genLength}}`), (req, res) =>
 {
-    console.log(`${getIP(req)} just accessed /`)
+    url = req.url.substr(1)
     fs.readFile(dataFile, (err, data) =>
     {
-        res.render('index', { data: parseData(data) })
+        data = data.toString().split('\n')
+        for (var i = 0; i < data.length; ++i)
+        {
+            var index = data[i].indexOf(':')
+            var a = data[i].substr(0, index)
+            var b = data[i].substr(index + 1)
+            if (a === url)
+            {
+                res.redirect(b)
+                return
+            }
+        }
+
+        res.status(404).send('Not found')
     })
-})*/
+})
 
 app.post('/add', (req, res) =>
 {
     var newText = req.body.text
-
-    if (newText.length == 0)
-        return
-    
-    console.log(`${getIP(req)} sent this url: ${newText}`)
-
-    var generated = randomString(5)
-
-    fs.appendFile(dataFile, `${generated}:${newText}\n`, (err) =>
-    {
-        if (err) throw err
-    })
-
+    var generated = randomString(genLength)
+    fs.appendFile(dataFile, `${generated}:${newText}\n`)
     res.send(generated)
 })
 
