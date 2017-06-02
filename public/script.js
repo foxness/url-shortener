@@ -8,12 +8,14 @@ $(() =>
         
         $.ajax(
         {
-            type: 'POST',
+            method: 'POST',
             url: '/add',
-            data: { text: value }
+            data: { text: value },
+            success: (data) =>
+            {
+                $('.genUrl').text(location.hostname + '/' + data).show()
+            }
         })
-        
-        location.reload(true)
     }
 
     $('#text').focus().select()

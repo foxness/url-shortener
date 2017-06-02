@@ -23,6 +23,10 @@ h1 {
     font-size: 32pt;
 }
 
+.genUrl {
+    display: none;
+}
+
 .main {
     width: 700px;
     min-height: 100%;
