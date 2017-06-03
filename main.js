@@ -16,6 +16,11 @@ function getIP(req)
     return req.ip.split(':').pop()
 }
 
+function isURL(str)
+{
+    return /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(str)
+}
+
 function randomString(length)
 {
     const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -49,9 +54,16 @@ app.get(new RegExp(`\\w{${genLength}}`), (req, res) =>
 
 app.post('/add', (req, res) =>
 {
-    var newText = req.body.text
+    var inputUrl = req.body.inputUrl.trim()
+
+    if (inputUrl.length == 0 || !isURL(inputUrl))
+    {
+        res.send('url not valid')
+        return
+    }
+
     var generated = randomString(genLength)
-    fs.appendFile(dataFile, `${generated}:${newText}\n`)
+    fs.appendFile(dataFile, `${generated}:${inputUrl}\n`, (err) => { if (err) throw err })
     res.send(generated)
 })
 
