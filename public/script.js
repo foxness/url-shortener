@@ -5,12 +5,17 @@ function isURL(str)
 
 $(() =>
 {
+    jQuery.showError = () =>
+    {
+        $('.error').slideDown().css('display', 'flex')
+    }    
+
     jQuery.submit = () =>
     {
         var value = $('#text').val().trim()
         if (value.length == 0 || !isURL(value))
         {
-            // todo
+            jQuery.showError()
             return
         }
         
@@ -23,7 +28,7 @@ $(() =>
             {
                 if (data == 'url not valid')
                 {
-                    //todo
+                    jQuery.showError()
                     return
                 }
 

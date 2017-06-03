@@ -16,11 +16,25 @@ body {
     background-color: #31490b;
     display: flex;
     justify-content: center;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
-h1 {
+.error p {
+    color: #555;
+    margin: auto;
+}
+
+.container h1 {
     margin: 20px 0;
     font-size: 32pt;
+}
+
+.error {
+    display: none;
+    height: 70px;
+    width: 100%;
+    background-color: white;
+    position: fixed;
 }
 
 .genUrl {
@@ -39,7 +53,6 @@ h1 {
 .container {
     margin-top: 100px;
     width: 400px;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     line-height: 1.5;
     color: #31490b;
 }
@@ -58,11 +71,6 @@ h1 {
     border: none;
     font-family: inherit;
     height: 60px;
-}
-
-ul {
-    width: 100%;
-    word-wrap: break-word;
 }
 
 #text {
