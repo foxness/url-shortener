@@ -19,6 +19,10 @@ body {
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
+a {
+    color: #31490b;
+}
+
 .error p {
     color: #555;
     margin: auto;
@@ -31,6 +35,7 @@ body {
 
 .error {
     display: none;
+    margin: auto;
     height: 70px;
     width: 100%;
     background-color: white;

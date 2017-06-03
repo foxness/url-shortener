@@ -5,9 +5,11 @@ function isURL(str)
 
 $(() =>
 {
+    $('.error').css('display', 'flex').hide()
+
     jQuery.showError = () =>
     {
-        $('.error').slideDown().css('display', 'flex')
+        $('.error').slideDown().delay(5000).slideUp()
     }    
 
     jQuery.submit = () =>
